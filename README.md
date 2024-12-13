@@ -1,12 +1,49 @@
-<?php
+![SPA](https://websemantics.github.io/gh-pages-spa/assets/img/screenshot.png)
+> This is a tiny package to enable building Single Page Applications for [GitHub Pages](https://pages.github.com/).
 
-$iPod = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
-$iPhone = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
-$iPad = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
-$Android= stripos($_SERVER['HTTP_USER_AGENT'],"Android");
-if( $iPod || $iPhone || $iPad ){
-        header('Location: https://apps.apple.com/us/app/talentlms/id1063795268');
-}else if($Android){
-        header('Location: https://play.google.com/store/apps/details?id=com.talentlms.android');
-}
-?> 
+
+### [Live demo](http://websemantics.github.io/gh-pages-spa/)
+
+
+## Getting Started
+
+Use the template provided in the `example` folder or, follow the easy steps below,
+
+1- Create a new project with two pages `index.html` and `404.html`.
+
+2- Install this package with either [Bower](https://bower.io/) or [NPM](https://www.npmjs.com/),
+
+```bash
+npm install ghspa
+```
+
+3- Include file `ghspa.js` in each page, as follows,
+
+```html
+<script type="text/javascript" src="path-to/ghspa.js"></script>
+```
+
+4- Set `404.html` page title to `404`, as follows,
+
+```html
+<title>404</title>
+```
+
+5- This package supports the [two types](https://help.github.com/articles/user-organization-and-project-pages/) of GitHub Pages, **User/Organization** and **Project** Pages. The global parameter `projectPages` is set to [`window.projectPages || true`](ghspa.js#L54) which will be always `true` by default for **Project** Pages. To enable **User/Organization** Pages or [Custom Domains](https://help.github.com/articles/using-a-custom-domain-with-github-pages/) change the parameters in ghspa.js from `window.projectPages || true` to `false`,
+
+
+## Credits
+
+This project was built with these resources,
+
+[SPA Github Pages](https://github.com/rafrex/spa-github-pages), host single page apps with github pages.
+
+[Pokemon Go](http://www.flaticon.com/packs/pokemon-go), a free SVG icon set.
+
+[Semantic-UI](http://semantic-ui.com/), a development framework that helps create beautiful, responsive layouts using human-friendly HTML.
+
+
+## License
+
+[MIT license](http://opensource.org/licenses/mit-license.php)
+Copyright (c) Web Semantics, Inc.
