@@ -1,28 +1,14 @@
 {
-  "name": "ghspa",
-  "main": "ghspa.js",
-  "version": "1.0.0",
-  "homepage": "https://github.com/websemantics/gh-pages-spa",
-  "authors": [
-    "Adnan <adnan@websemantics.ca>"
-  ],
-  "description": "Easy way to enable Single Page Applications for GitHub Pages.",
-  "keywords": [
-    "github",
-    "spa",
-    "github-pages",
-    "gh-pages"
-  ],
+  "name": "jquery",
+  "main": "dist/jquery.js",
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "test",
-    "tests"
+    "package.json"
   ],
-  "dependencies": {
-  },
-  "devDependencies": {
-    "bragit": "*"
-  }
+  "keywords": [
+    "jquery",
+    "javascript",
+    "browser",
+    "library"
+  ]
 }

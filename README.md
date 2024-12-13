@@ -1,49 +1,65 @@
-![SPA](https://websemantics.github.io/gh-pages-spa/assets/img/screenshot.png)
-> This is a tiny package to enable building Single Page Applications for [GitHub Pages](https://pages.github.com/).
+# jQuery
 
+> jQuery is a fast, small, and feature-rich JavaScript library.
 
-### [Live demo](http://websemantics.github.io/gh-pages-spa/)
+For information on how to get started and how to use jQuery, please see [jQuery's documentation](http://api.jquery.com/).
+For source files and issues, please visit the [jQuery repo](https://github.com/jquery/jquery).
 
+## Including jQuery
 
-## Getting Started
+Below are some of the most common ways to include jQuery.
 
-Use the template provided in the `example` folder or, follow the easy steps below,
+### Browser
 
-1- Create a new project with two pages `index.html` and `404.html`.
-
-2- Install this package with either [Bower](https://bower.io/) or [NPM](https://www.npmjs.com/),
-
-```bash
-npm install ghspa
-```
-
-3- Include file `ghspa.js` in each page, as follows,
+#### Script tag
 
 ```html
-<script type="text/javascript" src="path-to/ghspa.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 ```
 
-4- Set `404.html` page title to `404`, as follows,
+#### Babel
 
-```html
-<title>404</title>
+[Babel](http://babeljs.io/) is a next generation JavaScript compiler. One of the features is the ability to use ES6/ES2015 modules now, even though browsers do not yet support this feature natively.
+
+```js
+import $ from "jquery";
 ```
 
-5- This package supports the [two types](https://help.github.com/articles/user-organization-and-project-pages/) of GitHub Pages, **User/Organization** and **Project** Pages. The global parameter `projectPages` is set to [`window.projectPages || true`](ghspa.js#L54) which will be always `true` by default for **Project** Pages. To enable **User/Organization** Pages or [Custom Domains](https://help.github.com/articles/using-a-custom-domain-with-github-pages/) change the parameters in ghspa.js from `window.projectPages || true` to `false`,
+#### Browserify/Webpack
 
+There are several ways to use [Browserify](http://browserify.org/) and [Webpack](https://webpack.github.io/). For more information on using these tools, please refer to the corresponding project's documention. In the script, including jQuery will usually look like this...
 
-## Credits
+```js
+var $ = require("jquery");
+```
 
-This project was built with these resources,
+#### AMD (Asynchronous Module Definition)
 
-[SPA Github Pages](https://github.com/rafrex/spa-github-pages), host single page apps with github pages.
+AMD is a module format built for the browser. For more information, we recommend [require.js' documentation](http://requirejs.org/docs/whyamd.html).
 
-[Pokemon Go](http://www.flaticon.com/packs/pokemon-go), a free SVG icon set.
+```js
+define(["jquery"], function($) {
 
-[Semantic-UI](http://semantic-ui.com/), a development framework that helps create beautiful, responsive layouts using human-friendly HTML.
+});
+```
 
+### Node
 
-## License
+To include jQuery in [Node](nodejs.org), first install with npm.
 
-[MIT license](http://opensource.org/licenses/mit-license.php)
-Copyright (c) Web Semantics, Inc.
+```sh
+npm install jquery
+```
+
+For jQuery to work in Node, a window with a document is required. Since no such window exists natively in Node, one can be mocked by tools such as [jsdom](https://github.com/tmpvar/jsdom). This can be useful for testing purposes.
+
+```js
+require("jsdom").env("", function(err, window) {
+	if (err) {
+		console.error(err);
+		return;
+	}
+
+	var $ = require("jquery")(window);
+});
+```
